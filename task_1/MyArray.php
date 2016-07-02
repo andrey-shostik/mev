@@ -19,7 +19,7 @@ class MyArray
   }
 
   /**
-   * this method first option show sum of arr
+   * this method first option return sum of arr
    * @return integer
    */
   public function firstSumArray()
@@ -28,7 +28,7 @@ class MyArray
   }
 
   /**
-   * this method second option show sum of arr
+   * this method second option return sum of arr
    * @return integer
    */
   public function secondSumArray()
@@ -36,10 +36,8 @@ class MyArray
     $sum = 0;
     foreach ($this->arr as $value) {
       $sum += $value;
-      if (current($this->arr) == array_pop($this->arr)) {
-        return $sum;
-      }
     }
+    return $sum;
   }
 }
 
