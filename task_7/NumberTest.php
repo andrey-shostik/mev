@@ -16,7 +16,7 @@ class NumberTest extends PHPUnit_Framework_TestCase
     $this->number = null;
   }
 
-  public function testQuickSort()
+  public function testRun()
   {
     $result = $this->number->run();
     $this->assertEquals(55251, $result);
