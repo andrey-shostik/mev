@@ -4,8 +4,6 @@ require('MathematicalExpression.php');
 
 class MathematicalExpressionTest extends PHPUnit_Framework_TestCase
 {
-  private $expression1;
-
   protected function setUp()
   {
     $this->expression = new MathematicalExpression();
