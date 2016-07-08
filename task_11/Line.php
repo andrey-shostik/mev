@@ -1,7 +1,7 @@
 <?php
 
 /**
- * have method
+ * have method for check word on polindrome
  */
 class Line
 {
