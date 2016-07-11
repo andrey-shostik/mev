@@ -16,7 +16,7 @@ class Geocoding
      */
     private function getResponse($url)
     {
-         $curl = curl_init();
+        $curl = curl_init();
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
         curl_setopt($curl, CURLOPT_URL, $url);
         $code = curl_exec($curl);
