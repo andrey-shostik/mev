@@ -1,24 +1,30 @@
 <?php
+
 class Number
 {
     /**
      * this method print numbers
+     * @param integer $n count transposition
+     * @param integer $m count transposition
      * @return string
      */
-    public function run()
+    public function run($n, $m)
     {
-        $n = 3;
-        $m = 3;
+        $new_arr =  array();
 
-        for ($i=1; $i <= $n ; $i++) {
+        for ($i = 1; $i <= $n ; $i++) {
             $arr[$i] = 1;
         }
 
         do {
-            for ($i=1; $i <= $n; $i++) {
+            $array = array();
+
+            for ($i = 1; $i <= $n; $i++) {
+                $array[$i-1] = $arr[$i];
                 echo $arr[$i];
             }
 
+            array_push($new_arr, $array);
             echo "\n";
             $i = $n;
 
@@ -34,8 +40,10 @@ class Number
                 $yes = false;
             }
         } while ($yes);
+
+        return $new_arr;
     }
 }
 
 $a = new Number();
-$a->run();
+$b = $a->run(3, 3);
