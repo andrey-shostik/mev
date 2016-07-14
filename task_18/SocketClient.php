@@ -11,18 +11,25 @@ class SocketClient
 
     /**
      * send socket with message to server
-     * @return object
+     * @return boolean
      */
     public function sendMessage()
     {
-        while (true) {
+        $message = '';
+
+        while ($message != ':q') {
             $message = readline('Type your message: ');
-            $socket = stream_socket_client('tcp://127.0.0.1:2000');
+
+            if($socket = stream_socket_client('tcp://127.0.0.1:2000')) {
+                $boolean = true;
+            } else {
+                $boolean = false;
+            }
             fwrite($socket, $this->name . ': ' . $message);
             fclose($socket);
         }
 
-        return $socket;
+        return $boolean;
     }
 }
 

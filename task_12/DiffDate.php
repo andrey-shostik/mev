@@ -24,12 +24,14 @@ class DiffDate
     /**
      * this method to calculate difference between two date
      * @param double $firstDate, $secondDate
-     * @return double
+     * @return double $diff
      */
     public function calcDiff($firstDate, $secondDate)
     {
         $difference = intval(abs($firstDate - $secondDate));
-        return round($difference / (3600 * 24));
+        $diff = round($difference / (3600 * 24));
+        
+        return $diff
     }
 }
 

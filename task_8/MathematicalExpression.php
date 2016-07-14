@@ -131,6 +131,7 @@ class MathematicalExpression
     {
         $parsed_expression = $this->convertToPolishNotation($expression);
         print_r($parsed_expression);
+        
         return $this->countResults($parsed_expression);
     }
 }

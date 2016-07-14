@@ -15,17 +15,17 @@ class Number
         for ($i = 1; $i < 1000000; $i++) {
             $sum_a = 0;
             $sum_b = 0;
-            $a= $i / 1000;
-            $b= $i % 1000;
+            $a = $i / 1000;
+            $b = $i % 1000;
 
             while ($a >= 1) {
                 $sum_a = $sum_a + $a % 10;
-                $a= $a / 10;
+                $a = $a / 10;
             }
 
             while ($b >= 1) {
                 $sum_b = $sum_b + $b % 10;
-                $b= $b / 10;
+                $b = $b / 10;
             }
 
             if ($sum_a == $sum_b) {

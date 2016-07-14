@@ -22,7 +22,7 @@ class Line
      */
     public function clean_space()
     {
-        for ($i = 0; $i < strlen($this->main_str) ; $i++) {
+        for ($i = 0; $i < strlen($this->main_str); $i++) {
             if ($this->main_str[$i] == ' ') {
                 $this->main_str[$i] = '';
             }

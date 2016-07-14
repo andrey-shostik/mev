@@ -20,7 +20,7 @@ class Number
             $array = array();
 
             for ($i = 1; $i <= $n; $i++) {
-                $array[$i-1] = $arr[$i];
+                $array[$i - 1] = $arr[$i];
                 echo $arr[$i];
             }
 

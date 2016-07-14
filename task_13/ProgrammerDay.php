@@ -30,7 +30,6 @@ class ProgrammerDay
 
         return $date;
     }
-
 }
 
 $object = new ProgrammerDay;

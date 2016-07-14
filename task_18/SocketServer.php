@@ -18,7 +18,7 @@ class SocketServer
     }
 
     /**
-     * Show messages that was to get from client
+     * Print messages that was to get from client
      * @return object
      */
     public function showMessages()

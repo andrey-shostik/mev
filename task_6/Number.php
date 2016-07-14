@@ -15,6 +15,7 @@ class Number
         for ($i =1 ; $i <= $n ; $i++) {
             $arr[$i] = $i;
         }
+
         do {
             $array = array();
 
@@ -27,14 +28,18 @@ class Number
             echo "\n";
 
             $i = $n-1;
+
             while ($i > 0 && $arr[$i] > $arr[$i + 1]) {
                 $i--;
             }
+
             if ($i > 0) {
                 $j = $i + 1;
+
                 while ($j < $n && $arr[$j + 1] > $arr[$i]){
                     $j++;
                 }
+                
                 $a = $arr[$i];
                 $arr[$i] = $arr[$j];
                 $arr[$j] = $a;
