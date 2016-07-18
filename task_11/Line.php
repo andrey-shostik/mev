@@ -1,5 +1,7 @@
 <?php
 
+namespace mev\task_11;
+
 /**
  * have method for check word on polindrome
  */

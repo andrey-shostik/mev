@@ -1,6 +1,8 @@
 <?php
 
-require('ProgrammerDay.php');
+require __DIR__ . '/../vendor/autoload.php';
+
+use mev\task_13\ProgrammerDay;
 
 class ProgrammerDayTest extends PHPUnit_Framework_TestCase
 {

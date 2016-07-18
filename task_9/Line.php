@@ -1,5 +1,7 @@
 <?php
 
+namespace mev\task_9;
+
 /**
  * have methods for check line presence in line
  */

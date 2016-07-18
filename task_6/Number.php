@@ -1,5 +1,7 @@
 <?php
 
+namespace mev\task_6;
+
 class Number
 {
     /**
@@ -39,7 +41,7 @@ class Number
                 while ($j < $n && $arr[$j + 1] > $arr[$i]){
                     $j++;
                 }
-                
+
                 $a = $arr[$i];
                 $arr[$i] = $arr[$j];
                 $arr[$j] = $a;

@@ -1,5 +1,7 @@
 <?php
 
+namespace mev\task_14;
+
 class DirFiles
 {
     private $dir;

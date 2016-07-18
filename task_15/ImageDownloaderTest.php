@@ -1,22 +1,26 @@
 <?php
 
-require('ImageDownloader.php');
+require __DIR__ . '/../vendor/autoload.php';
+
+use mev\task_15\ImageDownloader;
 
 class ImageDownloaderTest extends PHPUnit_Framework_TestCase
 {
-  protected function setUp()
-  {
-    $this->img = new ImageDownloader();
-  }
+    protected $img;
 
-  protected function tearDown()
-  {
-    $this->img = null;
-  }
+    protected function setUp()
+    {
+        $this->img = new ImageDownloader();
+    }
 
-  public function testRunProgramm()
-  {
-    $result = $this->img->runProgram($this->img->getUrl(), $this->img->getDir());
-    $this->assertEquals(true, $result);
-  }
+    protected function tearDown()
+    {
+        $this->img = null;
+    }
+
+    public function testRunProgramm()
+    {
+        $result = $this->img->runProgram($this->img->getUrl(), $this->img->getDir());
+        $this->assertEquals(true, $result);
+    }
 }

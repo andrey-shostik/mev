@@ -1,4 +1,7 @@
 <?php
+
+namespace mev\task_4;
+
 /**
  * have property first_arr and second_arr of type array
  * have methods to sort of an array

@@ -1,5 +1,7 @@
 <?php
 
+namespace mev\task_5;
+
 class Number
 {
     /**

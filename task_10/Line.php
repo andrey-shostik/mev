@@ -1,5 +1,7 @@
 <?php
 
+namespace mev\task_10;
+
 /**
  * have methods for clean spaces in line
  */

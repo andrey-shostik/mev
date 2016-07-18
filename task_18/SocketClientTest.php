@@ -1,23 +1,27 @@
 <?php
 
-require('SocketClient.php');
+require __DIR__ . '/../vendor/autoload.php';
+
+use mev\task_18\SocketClient;
 
 class SocketClientTest extends PHPUnit_Framework_TestCase
 {
-  protected function setUp()
-  {
-    $this->obj = new SocketClient();
-  }
+    protected $obj;
 
-  protected function tearDown()
-  {
-    $this->obj = null;
-  }
+    protected function setUp()
+    {
+        $this->obj = new SocketClient();
+    }
 
-  public function testSendMessage()
-  {
-    $result = $this->obj->sendMessage();
-    $this->assertInternalType("boolean", $result);
-    $this->assertEquals(true, $result);
-  }
+    protected function tearDown()
+    {
+        $this->obj = null;
+    }
+
+    public function testSendMessage()
+    {
+        $result = $this->obj->sendMessage();
+        $this->assertInternalType("boolean", $result);
+        $this->assertEquals(true, $result);
+    }
 }

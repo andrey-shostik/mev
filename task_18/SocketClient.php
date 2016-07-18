@@ -1,5 +1,7 @@
 <?php
 
+namespace mev\task_18;
+
 class SocketClient
 {
     private $name;
@@ -16,11 +18,12 @@ class SocketClient
     public function sendMessage()
     {
         $message = '';
+        echo "Use :q for quit\n";
 
         while ($message != ':q') {
             $message = readline('Type your message: ');
 
-            if($socket = stream_socket_client('tcp://127.0.0.1:2000')) {
+            if ($socket = stream_socket_client('tcp://127.0.0.1:2000')) {
                 $boolean = true;
             } else {
                 $boolean = false;

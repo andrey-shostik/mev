@@ -1,10 +1,12 @@
 <?php
 
-require('DirFiles.php');
+require __DIR__ . '/../vendor/autoload.php';
+
+use mev\task_14\DirFiles;
 
 class DirFilesTest extends PHPUnit_Framework_TestCase
 {
-    public $dir;
+    protected $dir;
 
     protected function setUp()
     {

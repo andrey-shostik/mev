@@ -1,5 +1,7 @@
 <?php
 
+namespace mev\task_1;
+
 class ImageDownloader
 {
     private $url;

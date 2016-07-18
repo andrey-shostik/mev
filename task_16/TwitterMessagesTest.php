@@ -1,22 +1,24 @@
 <?php
 
-require('TwitterMessages.php');
+require 'TwitterMessages.php';
 
 class TwitterMessagesTest extends PHPUnit_Framework_TestCase
 {
-  protected function setUp()
-  {
-    $this->obj = new TwitterMessages();
-  }
+    protected $obj;
 
-  protected function tearDown()
-  {
-    $this->obj = null;
-  }
+    protected function setUp()
+    {
+        $this->obj = new TwitterMessages();
+    }
 
-  public function testRun()
-  {
-    $result = $this->obj->run();
-    $this->assertInternalType("array", $result);
-  }
+    protected function tearDown()
+    {
+        $this->obj = null;
+    }
+
+    public function testRun()
+    {
+        $result = $this->obj->run();
+        $this->assertInternalType("array", $result);
+    }
 }

@@ -1,5 +1,7 @@
 <?php
 
+namespace mev\task_8;
+
 /**
  * have property $own_expression of type string
  * have methods to convert to polish notation, count res., and write res.
@@ -131,7 +133,7 @@ class MathematicalExpression
     {
         $parsed_expression = $this->convertToPolishNotation($expression);
         print_r($parsed_expression);
-        
+
         return $this->countResults($parsed_expression);
     }
 }

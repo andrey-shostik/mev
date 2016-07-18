@@ -1,5 +1,7 @@
 <?php
 
+namespace mev\task_12;
+
 class DiffDate
 {
     private $f_date;
@@ -30,8 +32,8 @@ class DiffDate
     {
         $difference = intval(abs($firstDate - $secondDate));
         $diff = round($difference / (3600 * 24));
-        
-        return $diff
+
+        return $diff;
     }
 }
 

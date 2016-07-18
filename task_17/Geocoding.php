@@ -1,5 +1,7 @@
 <?php
 
+namespace mev\task_17;
+
 class Geocoding
 {
     const API_KEY = 'AIzaSyCqgNU9G7BYnauTIzbmtQbg4zkuE7l2FiY';
@@ -12,7 +14,7 @@ class Geocoding
     /**
      * get response API google Geocoding
      * @param  string $url - link to API
-     * @return	array $code_array - parsed in array response
+     * @return array $code_array - parsed in array response
      */
     private function getResponse($url)
     {

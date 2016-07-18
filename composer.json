@@ -1,0 +1,24 @@
+{
+    "name": "andrey/mev",
+    "description": "Tasks",
+    "type": "task",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Andrey Shostik",
+            "email": "aaa73731919@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {},
+    "require-dev": {
+        "phpunit/phpunit": "5.4.*",
+        "phpunit/php-invoker": "1.1.*",
+        "phpunit/dbunit": "2.0.*"
+    },
+    "autoload": {
+        "psr-4": {
+            "mev\\": ""
+        }
+    }
+}

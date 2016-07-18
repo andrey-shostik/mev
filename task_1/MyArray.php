@@ -1,11 +1,14 @@
 <?php
+
+namespace mev\task_1;
+
 /**
  * have property arr of type array
  * have methods to display the sum of an array
  */
 class MyArray
 {
-  protected $arr = array(1, 5, 2, 7);
+  private $arr = array(1, 5, 2, 7);
 
   /**
    * this method show values of arr

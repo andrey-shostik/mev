@@ -1,22 +1,26 @@
 <?php
 
-require('DiffDate.php');
+require __DIR__ . '/../vendor/autoload.php';
+
+use mev\task_12\DiffDate;
 
 class DiffDateTest extends PHPUnit_Framework_TestCase
 {
-  protected function setUp()
-  {
-    $this->date = new DiffDate(strtotime('now'), strtotime('04-01-1998'));
-  }
+    protected $date;
 
-  protected function tearDown()
-  {
-    $this->date = null;
-  }
+    protected function setUp()
+    {
+        $this->date = new DiffDate(strtotime('now'), strtotime('04-01-1998'));
+    }
 
-  public function testCalcDiff()
-  {
-    $result = $this->date->calcDiff($this->date->getFirstDate(), $this->date->getSecondDate());
-    $this->assertInternalType("double", $result);
-  }
+    protected function tearDown()
+    {
+        $this->date = null;
+    }
+
+    public function testCalcDiff()
+    {
+        $result = $this->date->calcDiff($this->date->getFirstDate(), $this->date->getSecondDate());
+        $this->assertInternalType("double", $result);
+    }
 }

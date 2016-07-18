@@ -1,9 +1,13 @@
 <?php
 
-require('WaterMark.php');
+require __DIR__ . '/../vendor/autoload.php';
+
+use mev\task_19\WaterMark;
 
 class WaterMarkTest extends PHPUnit_Framework_TestCase
 {
+    protected $obj;
+
     protected function setUp()
     {
         $this->obj = new WaterMark('photo.jpeg', 'stamp.png');

@@ -1,5 +1,7 @@
 <?php
 
+namespace mev\task_19;
+
 class WaterMark
 {
     private $photo;

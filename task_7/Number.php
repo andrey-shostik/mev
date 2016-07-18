@@ -1,5 +1,7 @@
 <?php
 
+namespace mev\task_7;
+
 /**
  * have method to count happy ticket
  */
