@@ -1,6 +1,8 @@
 <?php
+
 require __DIR__ . '/../vendor/autoload.php';
 
+use mev\task_1\MyArray;
 
 class MyArrayTest extends PHPUnit_Framework_TestCase
 {
