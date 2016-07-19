@@ -1,4 +1,4 @@
 ## Run tests
-Print in terminal
+Print in command line
 
      phpunit
