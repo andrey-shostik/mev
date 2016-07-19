@@ -12,7 +12,25 @@
 
     <testsuites>
         <testsuite name="Project Test Suite">
-            <directory>tests</directory>
+            <file>app/Task1/MyArrayTest.php</file>
+            <file>app/Task2/MyArrayTest.php</file>
+            <file>app/Task3/MyArrayTest.php</file>
+            <file>app/Task4/MyArrayTest.php</file>
+            <file>app/Task5/NumberTest.php</file>
+            <file>app/Task6/NumberTest.php</file>
+            <file>app/Task7/NumberTest.php</file>
+            <file>app/Task8/MathematicalExpressionTest.php</file>
+            <file>app/Task9/LineTest.php</file>
+            <file>app/Task10/LineTest.php</file>
+            <file>app/Task11/LineTest.php</file>
+            <file>app/Task12/DiffDateTest.php</file>
+            <file>app/Task13/ProgrammerDayTest.php</file>
+            <file>app/Task14/DirFilesTest.php</file>
+            <file>app/Task15/ImageDownloaderTest.php</file>
+            <file>app/Task16/TwitterMessagesTest.php</file>
+            <file>app/Task17/GeocodingTest.php</file>
+            <file>app/Task18/SocketClientTest.php</file>
+            <file>app/Task19/WaterMarkTest.php</file>
         </testsuite>
     </testsuites>
 </phpunit>

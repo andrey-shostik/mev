@@ -11,10 +11,6 @@ class ComposerStaticInit0fae0c15fa591b9f738e59f2a6c97ab3
         array (
             'phpDocumentor\\Reflection\\' => 25,
         ),
-        'm' => 
-        array (
-            'mev\\' => 4,
-        ),
         'W' => 
         array (
             'Webmozart\\Assert\\' => 17,
@@ -28,6 +24,11 @@ class ComposerStaticInit0fae0c15fa591b9f738e59f2a6c97ab3
             'Doctrine\\Instantiator\\' => 22,
             'DeepCopy\\' => 9,
         ),
+        'A' => 
+        array (
+            'App\\' => 4,
+            'Abraham\\TwitterOAuth\\' => 21,
+        ),
     );
 
     public static $prefixDirsPsr4 = array (
@@ -36,10 +37,6 @@ class ComposerStaticInit0fae0c15fa591b9f738e59f2a6c97ab3
             0 => __DIR__ . '/..' . '/phpdocumentor/reflection-common/src',
             1 => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src',
             2 => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src',
-        ),
-        'mev\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/',
         ),
         'Webmozart\\Assert\\' => 
         array (
@@ -57,6 +54,14 @@ class ComposerStaticInit0fae0c15fa591b9f738e59f2a6c97ab3
         array (
             0 => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy',
         ),
+        'App\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/app',
+        ),
+        'Abraham\\TwitterOAuth\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/abraham/twitteroauth/src',
+        ),
     );
 
     public static $prefixesPsr0 = array (
@@ -65,6 +70,10 @@ class ComposerStaticInit0fae0c15fa591b9f738e59f2a6c97ab3
             'Prophecy\\' => 
             array (
                 0 => __DIR__ . '/..' . '/phpspec/prophecy/src',
+            ),
+            'PHPExcel' => 
+            array (
+                0 => __DIR__ . '/..' . '/phpoffice/phpexcel/Classes',
             ),
         ),
     );
