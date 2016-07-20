@@ -21,7 +21,8 @@ class MathematicalExpression
     /**
      * @return string $expression - mathematical expression
      */
-    public function getOwnExpression(){
+    public function getOwnExpression()
+    {
         return $this->own_expression;
     }
 
@@ -30,17 +31,19 @@ class MathematicalExpression
      * @param string $s - mathematical expression(no parsed)
      * @return array $out - mathematical expression(parsed)
      */
-    private function convertToPolishNotation($s) {
+    private function convertToPolishNotation($s)
+    {
         static $prior = array('^' => 3, '*' => 3, '/' => 3, '+' => 2, '-' => 2, '(' => 1);
         $stack = $out = $items = array();
         $pair = array();
         // get operators & operands
         $d = null;
-        for($i = 0, $l = strlen($s); $i < $l; ++$i) { // scan expression
-            if (is_numeric($s{$i}) || $s{$i}=='.')
+        for ($i = 0, $l = strlen($s); $i < $l; ++$i) {
+            // scan expression
+            if (is_numeric($s{$i}) || $s{$i} == '.') {
                 $d = $s{$i};
-            else {
-                if ( $d != null ) {
+            } else {
+                if ($d != null) {
                     $out[] = $d; // add operand(numeric)
                     $pair[] = $d;
                     $d = null;
@@ -49,30 +52,37 @@ class MathematicalExpression
                 if (sizeof($stack) == 0 || $s{$i} == '(') {
                     $stack[] = $s{$i};
                 } elseif ($s{$i} == ')') {
-                    for ($j = sizeof($stack)-1; $j >= 0; --$j) {
-                        if ($stack[$j] != '(')
+                    for ($j = sizeof($stack) - 1; $j >= 0; --$j) {
+                        if ($stack[$j] != '(') {
                             $out[] = array_pop($stack);
-                        else{
+                        } else {
                             array_pop($stack);
                             break;
                         }
                     }
-                } else { // + - * /
-                    for ($j = sizeof($stack)-1; $j >= 0; --$j) {
-                        if ($prior[$stack[$j]] < $prior[$s{$i}])
+                } else {
+                    // + - * /
+                    for ($j = sizeof($stack) - 1; $j >= 0; --$j) {
+                        if ($prior[$stack[$j]] < $prior[$s{$i}]) {
                             break;
+                        }
+
                         $out[] = $stack[$j];
                         unset($stack[$j]);
                     }
                     $stack = array_values($stack);
                     $stack[] = $s{$i};
                 }
-            }// else
+            } // else
         }
-        if ($d != null)
+        if ($d != null) {
             $out[] = $d;
-        if (sizeof($stack))
+        }
+
+        if (sizeof($stack)) {
             $out = array_merge($out, array_reverse($stack));
+        }
+
         return $out;
     }
 
@@ -84,39 +94,51 @@ class MathematicalExpression
     private function countResults($arr)
     {
         for ($i = 0; $i < count($arr); $i++) {
-            if (!is_numeric($arr[$i])){
+            if (!is_numeric($arr[$i])) {
                 switch ($arr[$i]) {
                     case '+':
-                        if (!is_numeric($arr[$i-2])) {
-                            $res += $arr[$i-1]; break;
-                        } else if (!is_numeric($arr[$i]) && !is_numeric($arr[$i-1]) ) {
-                            $res += $arr[$i-4]; break;
+                        if (!is_numeric($arr[$i - 2])) {
+                            $res += $arr[$i - 1];
+                            break;
+                        } else if (!is_numeric($arr[$i]) && !is_numeric($arr[$i - 1])) {
+                            $res += $arr[$i - 4];
+                            break;
                         } else {
-                            $res = $arr[$i-2] + $arr[$i-1]; break;
+                            $res = $arr[$i - 2] + $arr[$i - 1];
+                            break;
                         }
                     case '-':
-                        if (!is_numeric($arr[$i-2])) {
-                            $res -= $arr[$i-1]; break;
-                        } else if (!is_numeric($arr[$i]) && !is_numeric($arr[$i-1]) ) {
-                            $res = $arr[$i-4] - $res; break;
+                        if (!is_numeric($arr[$i - 2])) {
+                            $res -= $arr[$i - 1];
+                            break;
+                        } else if (!is_numeric($arr[$i]) && !is_numeric($arr[$i - 1])) {
+                            $res = $arr[$i - 4] - $res;
+                            break;
                         } else {
-                            $res = $arr[$i-2] - $arr[$i-1]; break;
+                            $res = $arr[$i - 2] - $arr[$i - 1];
+                            break;
                         }
                     case '*':
-                        if (!is_numeric($arr[$i-2])) {
-                            $res *= $arr[$i-1]; break;
-                        } else if ($i > 2  && !is_numeric($arr[$i]) && is_numeric($arr[$i-3])) {
-                            $res = $arr[$i-2] * $arr[$i-1]; break;
+                        if (!is_numeric($arr[$i - 2])) {
+                            $res *= $arr[$i - 1];
+                            break;
+                        } else if ($i > 2 && !is_numeric($arr[$i]) && is_numeric($arr[$i - 3])) {
+                            $res = $arr[$i - 2] * $arr[$i - 1];
+                            break;
                         } else {
-                            $res = $arr[$i-2] * $arr[$i-1]; break;
+                            $res = $arr[$i - 2] * $arr[$i - 1];
+                            break;
                         }
                     case '/':
-                        if (!is_numeric($arr[$i-2])) {
-                            $res /= $arr[$i-1]; break;
-                        } else if ($i > 2  && !is_numeric($arr[$i]) && is_numeric($arr[$i-3])) {
-                            $res = $arr[$i-2] / $arr[$i-1]; break;
+                        if (!is_numeric($arr[$i - 2])) {
+                            $res /= $arr[$i - 1];
+                            break;
+                        } else if ($i > 2 && !is_numeric($arr[$i]) && is_numeric($arr[$i - 3])) {
+                            $res = $arr[$i - 2] / $arr[$i - 1];
+                            break;
                         } else {
-                            $res = $arr[$i-2] / $arr[$i-1]; break;
+                            $res = $arr[$i - 2] / $arr[$i - 1];
+                            break;
                         }
                 }
             }

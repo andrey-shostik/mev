@@ -46,7 +46,6 @@ class Line
 
 $object = new Line;
 
-
 if (strrev($object->getMainStr()) == $object->getMainStr()) {
     echo "Way first, word is polindrome";
 } else {

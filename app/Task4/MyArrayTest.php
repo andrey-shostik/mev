@@ -13,7 +13,7 @@ class MyArrayTest extends \PHPUnit_Framework_TestCase
 
     protected function tearDown()
     {
-       $this->my_array = null;
+        $this->my_array = null;
     }
 
     public function testGetCommon()

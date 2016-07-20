@@ -58,7 +58,7 @@ class MyArray
      * @param array $arr_s
      * @return array
      */
-    public function getCommon($f_arr, $s_arr )
+    public function getCommon($f_arr, $s_arr)
     {
         $common = array();
         $i = 0;

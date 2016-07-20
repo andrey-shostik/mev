@@ -12,9 +12,9 @@ class Number
      */
     public function run($n, $m)
     {
-        $new_arr =  array();
+        $new_arr = array();
 
-        for ($i = 1; $i <= $n ; $i++) {
+        for ($i = 1; $i <= $n; $i++) {
             $arr[$i] = 1;
         }
 

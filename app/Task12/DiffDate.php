@@ -7,7 +7,7 @@ class DiffDate
     private $f_date;
     private $s_date;
 
-    function __construct($firstDate, $secondDate)
+    public function __construct($firstDate, $secondDate)
     {
         $this->f_date = $firstDate;
         $this->s_date = $secondDate;

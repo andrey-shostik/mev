@@ -38,5 +38,5 @@ class Number
     }
 }
 
-$object =  new Number;
+$object = new Number;
 echo $object->run();

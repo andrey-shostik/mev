@@ -27,7 +27,7 @@ class SocketServer
     {
         $server_socket = $this->connection();
 
-        while(true) {
+        while (true) {
             $socket = stream_socket_accept($server_socket, -1);
             echo fread($socket, 1024), "\n";
             fclose($socket);

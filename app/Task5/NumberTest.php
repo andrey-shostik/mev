@@ -8,12 +8,12 @@ class NumberTest extends \PHPUnit_Framework_TestCase
 
     protected function setUp()
     {
-       $this->number = new Number();
+        $this->number = new Number();
     }
 
     protected function tearDown()
     {
-       $this->number = null;
+        $this->number = null;
     }
 
     public function testRun()
@@ -24,7 +24,7 @@ class NumberTest extends \PHPUnit_Framework_TestCase
             array(1, 1),
             array(1, 2),
             array(2, 1),
-            array(2, 2)
+            array(2, 2),
         ), $result);
     }
 }

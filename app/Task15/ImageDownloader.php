@@ -7,7 +7,7 @@ class ImageDownloader
     private $url;
     private $dir;
 
-    function __construct($url = 'http://mev.com/', $dir = 'app/Task15/img')
+    public function __construct($url = 'http://mev.com/', $dir = 'app/Task15/img')
     {
         $this->url = $url;
         $this->dir = $dir;
@@ -55,7 +55,7 @@ class ImageDownloader
         $regex = '/<\s*img[^>]*src=[\"|\'](.*?)[\"|\'][^>]*\/*>/i';
         preg_match_all($regex, $code, $arrayImg);
 
-        for($i = 0; $i < count($arrayImg[1]); $i++) {
+        for ($i = 0; $i < count($arrayImg[1]); $i++) {
 
             $path = parse_url($arrayImg[1][$i], PHP_URL_PATH);
             $absolute_url = 'http://' . $host . $path;
@@ -65,7 +65,6 @@ class ImageDownloader
 
             $a = $this->renameEqLink($name);
             $name = $a;
-
             if (!copy($absolute_url, $dir . '/' . $name)) {
                 echo 'Error copy - ' . $name;
             }
@@ -89,7 +88,6 @@ class ImageDownloader
 
         return $name;
     }
-
 
     /**
      * call methods and compare img in dir before and after

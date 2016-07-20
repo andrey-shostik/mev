@@ -6,7 +6,7 @@ class ProgrammerDay
 {
     private $year;
 
-    function __construct($year = '2016')
+    public function __construct($year = '2016')
     {
         $this->year = $year;
     }
@@ -22,7 +22,7 @@ class ProgrammerDay
      */
     public function printProgrammerDay($year)
     {
-        if ((intval($year)) % 4 == 0){
+        if ((intval($year)) % 4 == 0) {
             $date = '2016-09-12';
         } else {
             $date = '2016-09-13';

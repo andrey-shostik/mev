@@ -4,14 +4,15 @@ namespace App\Task16;
 
 class TwitterMessages
 {
-    const CONSUMER_KEY       = 'ONru9tPq2h89sqU9uhjUxrWaU';
-    const CONSUMER_SECRET    = 'ONWAXszAwMm6eoPZLIyaRo59QAp08tPI8g4ii6QmFV6gGfwF3e';
-    const ACCES_TOKEN        = '722030522659115009-cYhbNFIjDSurhqnwIgfG19ghnYoLHF0';
+    const CONSUMER_KEY = 'ONru9tPq2h89sqU9uhjUxrWaU';
+    const CONSUMER_SECRET = 'ONWAXszAwMm6eoPZLIyaRo59QAp08tPI8g4ii6QmFV6gGfwF3e';
+    const ACCES_TOKEN = '722030522659115009-cYhbNFIjDSurhqnwIgfG19ghnYoLHF0';
     const ACCES_TOKEN_SECRET = 'bkR9mABZD5zVK19oFoxckoUApA8MadSMycT1g4BKlB0bZ';
 
     private $username;
 
-    function __construct($username = 'tutspluscode') {
+    public function __construct($username = 'tutspluscode')
+    {
         $this->username = $username;
     }
 
@@ -57,20 +58,20 @@ class TwitterMessages
     }
 
     /**
-     *	get Published Date and Messages of user using API
-     *  @return array - result of parse of $content
+     * get Published Date and Messages of user using API
+     * @return array - result of parse of $content
      */
     private function getDataFromApi()
     {
         $connection = $this->connection();
         $content = $connection->get('statuses/user_timeline', array(
             "screen_name" => $this->username,
-            "count" => "200"
+            "count" => "200",
         ));
 
         $data = array('Published Date' => array(), 'Message' => array());
 
-        for($i = 0; $i < count($content); $i++){
+        for ($i = 0; $i < count($content); $i++) {
             $data['Published Date'][$i] = strftime('%A, %d/%m/%Y', strtotime($content[$i]->created_at));
             $data['Message'][$i] = $content[$i]->text;
         }
@@ -90,9 +91,9 @@ class TwitterMessages
 
         // Page orientation and paper size
         $aSheet->getPageSetup()
-           ->setOrientation(\PHPExcel_Worksheet_PageSetup::ORIENTATION_PORTRAIT);
+            ->setOrientation(\PHPExcel_Worksheet_PageSetup::ORIENTATION_PORTRAIT);
         $aSheet->getPageSetup()
-           ->SetPaperSize(\PHPExcel_Worksheet_PageSetup::PAPERSIZE_A4);
+            ->SetPaperSize(\PHPExcel_Worksheet_PageSetup::PAPERSIZE_A4);
 
         // Document fields
         $aSheet->getPageMargins()->setTop(1);
@@ -120,18 +121,18 @@ class TwitterMessages
         $aSheet = $this->setDocumentSettings($pExcel);
         $aSheet->getColumnDimension('A')->setWidth(22);
         $aSheet->getColumnDimension('B')->setWidth(100);
-        $aSheet->setCellValue('A1','PUBLISHED DATE');
-        $aSheet->setCellValue('B1','MESSAGES');
+        $aSheet->setCellValue('A1', 'PUBLISHED DATE');
+        $aSheet->setCellValue('B1', 'MESSAGES');
 
         $data = $this->getDataFromApi();
 
-        for($i = 0; $i < count($data['Published Date']); $i++){
-            $aSheet->setCellValue('A'.strval($i+2), $data['Published Date'][$i]);
-            $aSheet->setCellValue('B'.strval($i+2), $data['Message'][$i]);
+        for ($i = 0; $i < count($data['Published Date']); $i++) {
+            $aSheet->setCellValue('A' . strval($i + 2), $data['Published Date'][$i]);
+            $aSheet->setCellValue('B' . strval($i + 2), $data['Message'][$i]);
         }
 
         $objWriter = new \PHPExcel_Writer_Excel2007($pExcel);
-        $objWriter->save(__DIR__.'/data.xlsx');
+        $objWriter->save(__DIR__ . '/data.xlsx');
     }
 
     /**

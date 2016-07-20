@@ -13,7 +13,7 @@ class LineTest extends \PHPUnit_Framework_TestCase
 
     protected function tearDown()
     {
-       $this->str = null;
+        $this->str = null;
     }
 
     public function testCheckLine()

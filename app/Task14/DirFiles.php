@@ -6,7 +6,7 @@ class DirFiles
 {
     private $dir;
 
-    function __construct($dir = '/')
+    public function __construct($dir = '/')
     {
         $this->year = $dir;
     }
@@ -22,7 +22,7 @@ class DirFiles
      */
     public function printDir($dir)
     {
-        $dir    = '/';
+        $dir = '/';
         $files = scandir($dir);
 
         return $files;

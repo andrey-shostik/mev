@@ -14,7 +14,8 @@ class Line
      * this method initialize fields
      * @param $f_str and $s_str is string
      */
-    public function __construct($f_str = 'string', $s_str = 'str') {
+    public function __construct($f_str = 'string', $s_str = 'str')
+    {
         $this->basic_str = $f_str;
         $this->member_str = $s_str;
     }
@@ -35,8 +36,8 @@ class Line
      */
     public function checkLine()
     {
-        for ($i=0; $i < strlen($this->basic_str); $i++) {
-            $j=0;
+        for ($i = 0; $i < strlen($this->basic_str); $i++) {
+            $j = 0;
 
             while ($j < strlen($this->member_str) && $this->basic_str[$i] == $this->member_str[$j]) {
                 if ($j == strlen($this->member_str) - 1) {
@@ -50,8 +51,8 @@ class Line
 }
 
 $object = new Line();
-if (preg_match('/'.$object->getMemberStr().'/', $object->getBasicStr())){
+if (preg_match('/' . $object->getMemberStr() . '/', $object->getBasicStr())) {
     echo 'first way, line ', $object->getMemberStr(), ' is in line ', $object->getBasicStr(), "\n";
 }
 
-echo "second way, line ", $object->checkLine(), " is in line " , $object->getBasicStr();
+echo "second way, line ", $object->checkLine(), " is in line ", $object->getBasicStr();

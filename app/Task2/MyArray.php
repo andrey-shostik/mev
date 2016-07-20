@@ -16,9 +16,9 @@ class MyArray
      */
     public function showArray()
     {
-      foreach ($this->arr as $value) {
-        echo "$value ";
-      }
+        foreach ($this->arr as $value) {
+            echo "$value ";
+        }
     }
 
     /**
@@ -38,9 +38,9 @@ class MyArray
     {
         $max = 1;
         foreach ($this->arr as $value) {
-          if ($max < $value) {
-            $max = $value;
-          }
+            if ($max < $value) {
+                $max = $value;
+            }
         }
         return $max;
     }

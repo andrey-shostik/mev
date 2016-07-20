@@ -7,7 +7,7 @@ class WaterMark
     private $photo;
     private $stamp;
 
-    function __construct($photo, $stamp)
+    public function __construct($photo, $stamp)
     {
         $this->photo = $photo;
         $this->stamp = $stamp;
@@ -41,7 +41,7 @@ class WaterMark
         imagecopy($photo, $stamp, imagesx($photo) - $sx - $marge_right,
             imagesy($photo) - $sy - $marge_bottom, 0, 0,
             imagesx($stamp), imagesy($stamp)
-         );
+        );
 
         imagepng($photo, $img_name . '.png');
         imagedestroy($photo);
@@ -54,5 +54,5 @@ class WaterMark
     }
 }
 
-$water_mark = new WaterMark(__DIR__.'/photo.jpeg', __DIR__.'/stamp.png');
-$water_mark->setWaterMark(__DIR__.'/newimg');
+$water_mark = new WaterMark(__DIR__ . '/photo.jpeg', __DIR__ . '/stamp.png');
+$water_mark->setWaterMark(__DIR__ . '/newimg');
