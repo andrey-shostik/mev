@@ -7,7 +7,7 @@ class ImageDownloader
     private $url;
     private $dir;
 
-    public function __construct($url = 'http://mev.com/', $dir = 'app/Task15/img')
+    public function __construct($url = 'http://mev.com/', $dir = __DIR__ . '/img')
     {
         $this->url = $url;
         $this->dir = $dir;
@@ -42,9 +42,10 @@ class ImageDownloader
 
     /**
      * this method get img links using regular expression and download it
-     * @param string $code, $dir
+     * @param string $code
+     * @return array, $arrayImg
      */
-    private function downloadImages($code, $dir)
+    private function downloadImages($code)
     {
         if (!is_dir($this->dir)) {
             mkdir($this->dir);
@@ -65,7 +66,7 @@ class ImageDownloader
 
             $a = $this->renameEqLink($name);
             $name = $a;
-            if (!copy($absolute_url, $dir . '/' . $name)) {
+            if (!copy($absolute_url, $this->dir . '/' . $name)) {
                 echo 'Error copy - ' . $name;
             }
         }
@@ -82,7 +83,7 @@ class ImageDownloader
     {
         for ($i = 0; $i < count(scandir($this->dir)); $i++) {
             if ($name == scandir($this->dir)[$i]) {
-                $name = rand(0, 99) . $name;
+                $name = rand(0, 999) . $name;
             }
         }
 
@@ -92,15 +93,18 @@ class ImageDownloader
     /**
      * call methods and compare img in dir before and after
      * @param  string $url - url where be downloading images
-     * @param  string $dir - dir where be images on pc
      * @return boolean
      */
-    public function runProgram($url, $dir)
+    public function runProgram($url)
     {
-        $code = $this->getPageSource($url);
-        $links = $this->downloadImages($code, $dir);
+        if (!file_exists($this->dir)) {
+            mkdir($this->dir);
+        }
 
         $dirCount = count(scandir($this->dir));
+
+        $code = $this->getPageSource($url);
+        $links = $this->downloadImages($code);
 
         if (count(scandir($this->dir)) == ($dirCount + count($links[1]))) {
             return true;
@@ -111,4 +115,4 @@ class ImageDownloader
 }
 
 $object = new ImageDownloader;
-$object->runProgram($object->getUrl(), $object->getDir());
+$object->runProgram($object->getUrl());

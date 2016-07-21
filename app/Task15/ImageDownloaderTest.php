@@ -18,7 +18,7 @@ class ImageDownloaderTest extends \PHPUnit_Framework_TestCase
 
     public function testRunProgramm()
     {
-        $result = $this->img->runProgram($this->img->getUrl(), $this->img->getDir());
+        $result = $this->img->runProgram($this->img->getUrl());
         $this->assertEquals(true, $result);
     }
 }
