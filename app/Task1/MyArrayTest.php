@@ -18,13 +18,31 @@ class MyArrayTest extends \PHPUnit_Framework_TestCase
 
     public function testFirstSumArray()
     {
+        $this->my_array->setArr(array(1, 2, 3, 4, 5));
         $result = $this->my_array->firstSumArray();
         $this->assertEquals(15, $result);
+
+        $this->my_array->setArr(array(1, -2, 2));
+        $result = $this->my_array->firstSumArray();
+        $this->assertEquals(1, $result);
+
+        $this->my_array->setArr(array());
+        $result = $this->my_array->firstSumArray();
+        $this->assertEquals(false, $result);
     }
 
     public function testSecondSumArray()
     {
+        $this->my_array->setArr(array(1, 2, 3, 4, 5));
         $result = $this->my_array->secondSumArray();
         $this->assertEquals(15, $result);
+
+        $this->my_array->setArr(array(1, -2, 2));
+        $result = $this->my_array->secondSumArray();
+        $this->assertEquals(1, $result);
+
+        $this->my_array->setArr(array());
+        $result = $this->my_array->secondSumArray();
+        $this->assertEquals(false, $result);
     }
 }

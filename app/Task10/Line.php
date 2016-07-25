@@ -18,6 +18,8 @@ class Line
         $this->main_str = $str;
     }
 
+
+
     /**
      * this method initialize fields
      * @return string

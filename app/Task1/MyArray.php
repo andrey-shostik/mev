@@ -8,44 +8,57 @@ namespace App\Task1;
  */
 class MyArray
 {
-    private $arr = array(1, 5, 2, 7);
+    private $arr = array(-1, 2, 3);
 
     /**
-     * this method show values of arr
-     * @return string
+     * @param array, $arr
+     * @return array
      */
-    public function showArray()
+    public function setArr($arr)
     {
-        foreach ($this->arr as $value) {
-            echo "$value ";
-        }
+        return $this->arr = $arr;
+    }
+
+    public function getArr()
+    {
+        return $this->arr;
     }
 
     /**
      * this method first option return sum of arr
-     * @return integer
+     * @return integer|boolean
      */
     public function firstSumArray()
     {
-        return array_sum($this->arr);
+        if (!empty($this->arr)) {
+            return array_sum($this->arr);
+        }
+
+        return false;
     }
 
     /**
      * this method second option return sum of arr
-     * @return integer
+     * @return integer|boolean
      */
     public function secondSumArray()
     {
         $sum = 0;
-        foreach ($this->arr as $value) {
-            $sum += $value;
+
+        if (!empty($this->arr)) {
+            foreach ($this->arr as $value) {
+                $sum += $value;
+            }
+
+            return $sum;
         }
-        return $sum;
+
+        return false;
     }
 }
 
 $object = new MyArray;
+var_dump($object->getArr());
 
-$object->showArray();
-echo "\n sum " . $object->firstSumArray();
-echo "\n sum " . $object->secondSumArray();
+echo "\n sum 1: " . $object->firstSumArray();
+echo "\n sum 2: " . $object->secondSumArray();
